@@ -19,11 +19,6 @@ public class Calcuator_Activity extends AppCompatActivity {
     private String fullEquation  = "";
     private double firstNumber = 0;
 
-    private Button equals_btn;
-
-    private Button clear_field_btn;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,92 +33,26 @@ public class Calcuator_Activity extends AppCompatActivity {
 
         targilView = findViewById(R.id.targil);
         resultView = findViewById(R.id.result);
-        equals_btn = findViewById(R.id.equals);
-        clear_field_btn = findViewById(R.id.equals);
 
         setNumberListeners();
 
         setOperatorListeners();
 
-        equals_btn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.equals).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculateResult();
+                Calcuator_Activity.this.calculateResult();
             }
         });
 
-        clear_field_btn.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button13).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               clearCalculator();
+                Calcuator_Activity.this.clearCalculator();
             }
         });
     }
 
-
-    private void setOperatorListeners() {
-
-        {
-            Button plus = findViewById(R.id.plus);
-            plus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!userInput.isEmpty()) {
-                        firstNumber = Double.parseDouble(userInput);
-                        selectedOperator = ((Button) v).getText().toString();
-                        fullEquation += " " + selectedOperator + " ";
-                        userInput = "";
-                        targilView.setText(fullEquation);
-                    }
-                }
-            });
-        }
-        {
-            Button minus = findViewById(R.id.minus);
-            minus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!userInput.isEmpty()) {
-                        firstNumber = Double.parseDouble(userInput);
-                        selectedOperator = ((Button) v).getText().toString();
-                        fullEquation += " " + selectedOperator + " ";
-                        userInput = "";
-                        targilView.setText(fullEquation);
-                    }
-                }
-            });
-        }
-        {
-            Button multiplication = findViewById(R.id.multiplication);
-            multiplication.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!userInput.isEmpty()) {
-                        firstNumber = Double.parseDouble(userInput);
-                        selectedOperator = ((Button) v).getText().toString();
-                        fullEquation += " " + selectedOperator + " ";
-                        userInput = "";
-                        targilView.setText(fullEquation);
-                    }
-                }
-            });
-        }
-        {
-            Button divisor = findViewById(R.id.divisor);
-            divisor.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!userInput.isEmpty()) {
-                        firstNumber = Double.parseDouble(userInput);
-                        selectedOperator = ((Button) v).getText().toString();
-                        fullEquation += " " + selectedOperator + " ";
-                        userInput = "";
-                        targilView.setText(fullEquation);
-                    }
-                }
-            });
-        }
-    }
     private void setNumberListeners() {
         int[] numberButtonIds = {
                 R.id.one, R.id.two, R.id.three,
@@ -141,6 +70,70 @@ public class Calcuator_Activity extends AppCompatActivity {
                     userInput += number;
                     fullEquation += number;
                     targilView.setText(fullEquation);
+                }
+            });
+        }
+    }
+
+    private void setOperatorListeners() {
+
+        {
+            Button button = findViewById(R.id.plus);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!userInput.isEmpty()) {
+                        firstNumber = Double.parseDouble(userInput);
+                        selectedOperator = ((Button) v).getText().toString();
+                        fullEquation += " " + selectedOperator + " ";
+                        userInput = "";
+                        targilView.setText(fullEquation);
+                    }
+                }
+            });
+        }
+        {
+            Button button = findViewById(R.id.minus);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!userInput.isEmpty()) {
+                        firstNumber = Double.parseDouble(userInput);
+                        selectedOperator = ((Button) v).getText().toString();
+                        fullEquation += " " + selectedOperator + " ";
+                        userInput = "";
+                        targilView.setText(fullEquation);
+                    }
+                }
+            });
+        }
+        {
+            Button button = findViewById(R.id.multiplication);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!userInput.isEmpty()) {
+                        firstNumber = Double.parseDouble(userInput);
+                        selectedOperator = ((Button) v).getText().toString();
+                        fullEquation += " " + selectedOperator + " ";
+                        userInput = "";
+                        targilView.setText(fullEquation);
+                    }
+                }
+            });
+        }
+        {
+            Button button = findViewById(R.id.divisor);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!userInput.isEmpty()) {
+                        firstNumber = Double.parseDouble(userInput);
+                        selectedOperator = ((Button) v).getText().toString();
+                        fullEquation += " " + selectedOperator + " ";
+                        userInput = "";
+                        targilView.setText(fullEquation);
+                    }
                 }
             });
         }
