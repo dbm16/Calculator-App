@@ -245,7 +245,7 @@
             android:layout_width="0dp"
             android:layout_margin="10dp"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient"
+            android:background="@drawable/green_circle"
             android:textSize="32sp"
             android:textColor="@color/white"
             android:layout_weight="1"
