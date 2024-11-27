@@ -21,7 +21,7 @@ public class Calcuator_Activity extends AppCompatActivity {
 
     private Button equals_btn;
 
- private Button clear_field_btn;
+    private Button clear_field_btn;
 
 
     @Override
@@ -60,27 +60,6 @@ public class Calcuator_Activity extends AppCompatActivity {
         });
     }
 
-    private void setNumberListeners() {
-        int[] numberButtonIds = {
-                R.id.one, R.id.two, R.id.three,
-                R.id.four, R.id.five, R.id.six,
-                R.id.seven,
-                R.id.zero, R.id.eight, R.id.nine
-        };
-
-        for (int id : numberButtonIds) {
-            Button button = findViewById(id);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String number = ((Button) v).getText().toString();
-                    userInput += number;
-                    fullEquation += number;
-                    targilView.setText(fullEquation);
-                }
-            });
-        }
-    }
 
     private void setOperatorListeners() {
 
@@ -141,6 +120,27 @@ public class Calcuator_Activity extends AppCompatActivity {
                         userInput = "";
                         targilView.setText(fullEquation);
                     }
+                }
+            });
+        }
+    }
+    private void setNumberListeners() {
+        int[] numberButtonIds = {
+                R.id.one, R.id.two, R.id.three,
+                R.id.four, R.id.five, R.id.six,
+                R.id.seven,
+                R.id.zero, R.id.eight, R.id.nine
+        };
+
+        for (int id : numberButtonIds) {
+            Button button = findViewById(id);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String number = ((Button) v).getText().toString();
+                    userInput += number;
+                    fullEquation += number;
+                    targilView.setText(fullEquation);
                 }
             });
         }
